@@ -1,0 +1,37 @@
+﻿@model Lost_And_Found.Admin.Admin
+
+@{
+    ViewData["Title"] = "AdminView";
+}
+
+<link href="~/css/Ad.css" rel="stylesheet" />
+<div class="background-wrap">
+    <div class="background"></div>
+</div>
+
+<form id="accesspanel" method="post" asp-action="AdminView">
+
+    <h1 id="litheader">Admin Login</h1>
+    <div class="inset">
+        <p>
+            <input type="text" id="email" asp-for="EmailId" class="form-control" />
+        </p>
+        <p>
+            <input asp-for="Password" class="form-control" id="password" type="password" />
+        </p>
+        <div style="text-align: center;">
+            <div class="checkboxouter">
+                <input type="checkbox" name="rememberme" id="remember" value="Remember">
+                <label class="checkbox"></label>
+            </div>
+            <label for="remember">Remember me for 14 days</label>
+        </div>
+        <input class="loginLoginValue" type="hidden" name="service" value="login" />
+    </div>
+    <p class="p-container">
+        <input type="submit" name="Login" id="go" value="Authorize">
+    </p>
+</form>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

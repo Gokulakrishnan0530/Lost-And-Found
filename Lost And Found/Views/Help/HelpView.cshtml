@@ -1,0 +1,61 @@
+﻿@model Lost_And_Found.Models.Help
+
+@{
+    ViewData["Title"] = "HelpView";
+}
+
+<h1 class="row justify-content-center">Contact</h1>
+
+
+<hr />
+<div class="row justify-content-center">
+    
+    <div class="col-md-4">
+        <form asp-action="HelpView">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Findded_Location" class="control-label"></label>
+                <input asp-for="Findded_Location" class="form-control" />
+                <span asp-validation-for="Findded_Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contact_Information" class="control-label"></label>
+                <input asp-for="Contact_Information" class="form-control" />
+                <span asp-validation-for="Contact_Information" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+              @*   <label asp-for="UserEmail" class="control-label"></label> *@
+                <input type="hidden" asp-for="UserEmail" class="form-control" />
+                <span asp-validation-for="UserEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               @*  <label asp-for="UserId" class="control-label"></label> *@
+                <input type="hidden" asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-warning" />
+            </div>
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+</div>
+
+<div>
+   
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

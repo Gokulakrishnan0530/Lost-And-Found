@@ -1,0 +1,51 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}  
+
+
+<link href="~/css/StyleSheet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<div class="form-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="form-container">
+                    <div class="form-icon"><i class="fa fa-user"></i></div>
+                    <h3 class="title">Login</h3>
+                    <form class="form-horizontal" id="account" method="post">
+                        <div class="form-group">
+                            <label>email</label>
+                            <input class="form-control" asp-for="Input.Email" autocomplete="username" aria-required="true" required />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label>password</label>
+                            <input class="form-control" asp-for="Input.Password" autocomplete="current-password" aria-required="true" />
+                        </div>
+                        <br />
+                        <div class="forgot-group">
+                            <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="forgot-group">
+                            Not a member?
+                            <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                        </div>
+                        <br />
+                        <button id="login-submit" type="submit" class="btn btn-default">Log in</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

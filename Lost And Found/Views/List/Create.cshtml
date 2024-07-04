@@ -1,0 +1,76 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNetCore.Identity
+
+@model Lost_And_Found.Models.Main
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="row justify-content-center">Add </h1>
+
+
+<hr />
+<br/>
+<br />
+<div class="row justify-content-center">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                @*    <label asp-for="ImagePath" class="control-label"></label> *@
+                <input asp-for="ImagePath" type="hidden" value="images" class="form-control" />
+                <span asp-validation-for="ImagePath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageFile" class="control-label"></label>
+                <input asp-for="ImageFile" class="form-control" />
+                <span asp-validation-for="ImageFile" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner_Name" class="control-label"></label>
+                <input asp-for="Owner_Name" class="form-control" />
+                <span asp-validation-for="Owner_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" value="@User.FindFirstValue(ClaimTypes.NameIdentifier)" asp-for="UserId" class="form-control" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item_Name" class="control-label"></label>
+                <input asp-for="Item_Name" class="form-control" />
+                <span asp-validation-for="Item_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <input asp-for="Location" class="form-control" />
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateTime" class="control-label"></label>
+                <input asp-for="DateTime" class="form-control" />
+                <span asp-validation-for="DateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Additional_Note" class="control-label"></label>
+                <input asp-for="Additional_Note" class="form-control" />
+                <span asp-validation-for="Additional_Note" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+            <a asp-action="Index">Back to List</a>
+        </form>
+    </div>
+
+   
+</div>
+<div class="row justify-content-center">
+   
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,37 @@
+﻿<p>Index.cshtml</p>
+
+
+<h2>Download Report</h2>
+
+<form asp-action="Print" method="post">
+    <div>
+        <label for="format">Select Format:</label>
+        <select id="format" name="format">
+            <option value="pdf">PDF</option>
+            <option value="word">Word</option>
+            <option value="excel">Excel</option>
+            <option value="html">HTML</option>
+            <option value="ppt">PowerPoint</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Download</button>
+    </div>
+</form>
+
+<form asp-action="Print2" method="post">
+    <div>
+        <label for="format">Select Format:</label>
+        <select id="format" name="format">
+            <option value="pdf">PDF</option>
+            <option value="word">Word</option>
+            <option value="excel">Excel</option>
+            <option value="html">HTML</option>
+            <option value="ppt">PowerPoint</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit">Download</button>
+    </div>
+</form>
+
